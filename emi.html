@@ -1,0 +1,42 @@
+<html>
+  <head>
+  </head>
+  <body> 
+    <!-- Fill code here -->
+    <h2>Feedback for the ART OF LIVING session</h2>
+   <table>
+       <tr>
+           <td>Enter the Feedback:</td>
+           <td><textarea name="feedback" id=feedback rows="4" cols="40"></textarea></td>
+       </tr>
+       <tr>
+           <td colspan="2"><input type="button" name="create" id="create" value="Add Feedback" onclick="addFeedback();" /></td>
+       </tr>
+       <tr>
+           <td colspan="2"><input type="button" name="view" id="view" value="View Feedback" onclick="displayFeedback();" /></td>
+       </tr>
+   </table>
+    <div id="result"></div>
+    <script>
+    	var arr = [];
+
+         function addFeedback() {
+               var feedbackTextArea = document.getElementById("feedback");
+               var result = document.getElementById("result");
+               arr.push(feedbackTextArea.value);
+               feedbackTextArea.value = "";
+               result.innerHTML = "<h2>Feedback Details</h2><p><b>Successfully Added Feedback Details!</b></p>";
+           }
+        function displayFeedback(){
+                var op = "<h2>Feedback Details</h2>"
+                var lcv = 1;
+                for(var element in arr){
+                    op += "Feedback "+lcv.toString()+ arr[element] + "<br>";
+                    lcv++;
+                }
+        document.getElementById("result").innerHTML=op;
+        arr = [];
+    }
+    </script>
+  </body>
+</html>
